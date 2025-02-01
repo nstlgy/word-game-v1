@@ -1,2 +1,1 @@
-# React + Vite
-# word-game-v1
+# word-game
