@@ -7,7 +7,12 @@ function Game() {
   const [guesses, setGuesses] = useState([]);
 
   function handleSubmitGuesses(tentativeGuess) {
-    setGuesses([...guesses, tentativeGuess]);
+    // create an object to assign a unique value for each guess
+    const nextGuess = {
+      value: tentativeGuess,
+      id: `${tentativeGuess}-${Math.random()}`, // you'd have to be really lucky to repeat this id
+    };
+    setGuesses([...guesses, nextGuess]);
   }
 
   return (
