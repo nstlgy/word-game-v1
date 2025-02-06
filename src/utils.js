@@ -12,3 +12,7 @@ export const range = (start, end, step = 1) => {
 
   return output;
 };
+
+export const sample = (arr) => {
+  return arr[Math.floor(Math.random() * arr.length)];
+};
