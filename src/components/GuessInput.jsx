@@ -6,6 +6,7 @@ function GuessInput({ handleSubmitGuesses }) {
   function handleSubmit(event) {
     event.preventDefault();
     handleSubmitGuesses(tentativeGuess);
+    console.log("Tentative Guess:", tentativeGuess);
     setTentativeGuess("");
   }
   return (

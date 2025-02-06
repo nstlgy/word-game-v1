@@ -1,12 +1,22 @@
-import React from "react";
-import Guess from "./Guess";
+import { range } from "../utils";
 
 function GuessResults({ guesses }) {
   return (
     <>
       <div className="guess-results">
-        {guesses.map(({ value, id }) => {
-          return <Guess value={value} key={id} />;
+        {range(6).map((row, index) => {
+          const guess = guesses[index];
+          return (
+            <p className="guess" key={guess?.id || index}>
+              {range(5).map((cell, index) => {
+                return (
+                  <span className="cell" key={index}>
+                    {guess?.value?.[index]}
+                  </span>
+                );
+              })}
+            </p>
+          );
         })}
       </div>
     </>
