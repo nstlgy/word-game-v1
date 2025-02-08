@@ -1,29 +1,14 @@
-import { checkGuess } from "../game-helpers";
+import Guess from "./Guess";
+import { NUM_OF_GUESSES_ALLOWED } from "../constants";
 import { range } from "../utils";
 
-function GuessResults({ guesses, answer }) {
+function GuessResults({ guesses }) {
   return (
-    <>
-      <div className="guess-results">
-        {range(6).map((row, index) => {
-          const guess = guesses[index];
-          const result = checkGuess(guess?.value, answer);
-          console.log(result);
-          // using the optional chaining (?.) operator
-          return (
-            <p className="guess" key={guess?.id || index}>
-              {range(5).map((cell, index) => {
-                return (
-                  <span className="cell" key={index}>
-                    {guess?.value?.[index]}
-                  </span>
-                );
-              })}
-            </p>
-          );
-        })}
-      </div>
-    </>
+    <div className="guess-results">
+      {range(NUM_OF_GUESSES_ALLOWED).map((num) => {
+        return <Guess key={num} value={guesses[num]} />;
+      })}
+    </div>
   );
 }
 
