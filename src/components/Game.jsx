@@ -5,6 +5,8 @@ import { sample } from "../utils";
 import GameOverBanner from "./GameOverBanner";
 import GuessInput from "./GuessInput";
 import GuessResults from "./GuessResults";
+import WonBanner from "./WonBanner";
+import LostBanner from "./LostBanner";
 
 const answer = sample(WORDS);
 console.log(`Answer: ${answer}`);
@@ -33,13 +35,8 @@ function Game() {
         handleSubmitGuesses={handleSubmitGuesses}
         gameStatus={gameStatus}
       />
-      {gameStatus !== "running" && (
-        <GameOverBanner
-          gameStatus={gameStatus}
-          numOfGuesses={guesses.length}
-          answer={answer}
-        />
-      )}
+      {gameStatus === "won" && <WonBanner numOfGuesses={guesses.length} />}
+      {gameStatus === "lost" && <LostBanner answer={answer} />}
     </>
   );
 }
