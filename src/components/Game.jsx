@@ -8,6 +8,8 @@ const answer = sample(WORDS);
 console.log(`Answer: ${answer}`);
 
 function Game() {
+  // running | won | lost
+  const [gameStatus, setGameStatus] = React.useState("running");
   const [guesses, setGuesses] = React.useState([]);
 
   function handleSubmitGuesses(tentativeGuess) {
